@@ -4,3 +4,6 @@
 
 - name: reload pgbouncer
   service: name=pgbouncer state=reloaded
+
+- name: restart monit
+  service: name=monit state=restarted

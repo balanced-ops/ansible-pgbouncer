@@ -1,3 +1,9 @@
 ---
 
+- apt:
+    pkg: monit
+    state: present
+
 - template: src=pgbouncer/monit.j2 dest=/etc/monit/conf.d/pgbouncer
+  notify:
+    - restart monit
