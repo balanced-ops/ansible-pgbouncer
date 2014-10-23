@@ -8,6 +8,10 @@
 [databases]
 * = host={{ pgbouncer_database_host }} port={{ pgbouncer_database_port }}
 
+{% for alias in pgbouncer_aliases %}
+{{ alias.name }} = host={{ alias.name }} port={{ alias.name }} dbname={{ alias.name }}
+{% endfor %}
+
 ;; Configuation section
 [pgbouncer]
 user = {{ pgbouncer.config.user }}
