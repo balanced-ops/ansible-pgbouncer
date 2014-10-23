@@ -6,11 +6,10 @@
 ;;   pool_size= connect_query=
 
 [databases]
-* = host={{ pgbouncer_database_host }} port={{ pgbouncer_database_port }}
-
 {% for alias in pgbouncer_aliases %}
-{{ alias.name }} = host={{ alias.name }} port={{ alias.name }} dbname={{ alias.db_name }}
+{{ alias.name }} = host={{ alias.name }} port={{ alias.port }} dbname={{ alias.db_name }}
 {% endfor %}
+* = host={{ pgbouncer_database_host }} port={{ pgbouncer_database_port }}
 
 ;; Configuation section
 [pgbouncer]
