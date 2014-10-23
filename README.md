@@ -1,5 +1,7 @@
 # Ansible PGBouncer playbook
 
+[![Build Status](https://travis-ci.org/balanced-ops/ansible-pgbouncer.svg)](https://travis-ci.org/balanced-ops/ansible-pgbouncer)
+
 This is an Ansible playbook for deploying PGBouncer
 
 This playbook was tested on Ubuntu 12.04 x86_64.
