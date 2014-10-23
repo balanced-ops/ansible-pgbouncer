@@ -14,5 +14,5 @@ pgbouncer:
 pgbouncer_users:
   - postgres
 
-pg_bouncer_database_host: 127.0.0.1
-pg_bouncer_database_port: 5432
+pgbouncer_database_host: 127.0.0.1
+pgbouncer_database_port: 5432
