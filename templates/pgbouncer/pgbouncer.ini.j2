@@ -6,7 +6,7 @@
 ;;   pool_size= connect_query=
 
 [databases]
-* = host={{ pgbouncer_database_host | default(pgbouncer.config.database_host) }} port={{ pgbouncer_database_port | default(pgbouncer.config.database_port) }}
+* = host={{ pgbouncer_database_host }} port={{ pgbouncer_database_port }}
 
 ;; Configuation section
 [pgbouncer]
