@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: Balanced
+  description: Ansible role to configure pgbouncer
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+    name: Ubuntu
+    version:
+      - precise
+  categories: []
+
+dependencies: []

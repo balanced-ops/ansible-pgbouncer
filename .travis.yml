@@ -1,0 +1,11 @@
+language: python
+
+python:
+  - "2.7"
+
+install:
+  - pip install ansible
+
+script:
+  - ansible-playbook -i tests/ansible.inventory test.yml --syntax-check
+  - ansible-playbook -i tests/ansible.inventory test.yml

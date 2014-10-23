@@ -1,0 +1,18 @@
+pgbouncer:
+  user: postgres
+  group: postgres
+
+  config:
+    listen_addr: '*'
+    listen_port: 6432
+
+    user: postgres
+
+    auth_type: trust
+    auth_file: /etc/pgbouncer/userlist.txt
+
+pgbouncer_users:
+  - postgres
+
+pg_bouncer_database_host: 127.0.0.1
+pg_bouncer_database_port: 5432
