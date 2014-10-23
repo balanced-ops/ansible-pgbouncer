@@ -4,6 +4,6 @@
   vars_files:
     - ./defaults/main.yml
   handlers:
-    - ./handlers/main.yml
+    - include: ./handlers/main.yml
   tasks:
     - include: ./tasks/main.yml

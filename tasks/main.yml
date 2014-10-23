@@ -1,7 +1,6 @@
 ---
 
 - include: repository.yml
-  tags: pgbouncer
 
 - name: Install pgbouncer
   apt: pkg=pgbouncer state=installed update_cache=yes
@@ -28,3 +27,5 @@
   notify:
     - restart pgbouncer
   tags: pgbouncer
+
+- include: monitoring.yml

@@ -1,0 +1,5 @@
+check process postgres with pidfile /var/run/postgresql/pgbouncer.pid
+    start program = "/etc/init.d/pgbouncer start"
+    stop  program = "/etc/init.d/pgbouncer stop"
+    if failed host 127.0.0.1 port {{ pgbouncer.config.listen_port }} protocol pgsql then restart
+    if 5 restarts within 5 cycles then alert
