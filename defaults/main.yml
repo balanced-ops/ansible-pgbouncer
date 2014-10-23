@@ -1,4 +1,6 @@
 pgbouncer:
+  repo: 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main'
+
   user: postgres
   group: postgres
 
