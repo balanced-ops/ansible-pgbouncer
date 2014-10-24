@@ -16,6 +16,16 @@ pgbouncer:
     log_rotate_retain_count: 2
     log_rotate_retain_period: daily
 
+    pool_mode: session
+
+    max_client_conn: 400
+    default_pool_size: 100
+    reserve_pool_size: 5
+    reserve_pool_timeout: 3
+    log_connections: 1
+    log_disconnections: 1
+    log_pooler_errors: 1
+
 pgbouncer_users:
   - postgres
 

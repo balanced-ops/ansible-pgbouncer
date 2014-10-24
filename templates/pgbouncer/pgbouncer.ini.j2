@@ -60,7 +60,7 @@ stats_users = {{ pgbouncer_stats_users | join(',') }}
 ;   session      - after client disconnects
 ;   transaction  - after transaction finishes
 ;   statement    - after statement finishes
-pool_mode = session
+pool_mode = {{ pgbouncer.config.pool_mode }}
 
 ; Query for cleaning connection immidiately after releasing from client.
 ; No need to put ROLLBACK here, pgbouncer does not reuse connections
@@ -99,27 +99,27 @@ server_check_delay = 10
 ;;;
 
 ; total number of clients that can connect
-max_client_conn = 200
+max_client_conn = {{ pgbouncer.config.max_client_conn }}
 
 ; defalt pool size.  20 is good number when transaction pooling
 ; is in use, in session pooling it needs to be the number of
 ; max clients you want to handle at any moment
-default_pool_size = 100
+default_pool_size = {{ pgbouncer.config.default_pool_size }}
 
 ; how many additional connection to allow in case of trouble
-;reserve_pool_size = 5
+reserve_pool_size = {{ pgbouncer.config.reserve_pool_size }}
 
 ; if a clients needs to wait more than this many seconds, use reserve pool
-;reserve_pool_timeout = 3
+reserve_pool_timeout = {{ pgbouncer.config.reserve_pool_timeout }}
 
 ; log if client connects or server connection is made
-log_connections = 1
+log_connections = {{ pgbouncer.config.log_connections }}
 
 ; log if and why connection was closed
-log_disconnections = 1
+log_disconnections = {{ pgbouncer.config.log_disconnections }}
 
 ; log error messages pooler sends to clients
-;log_pooler_errors = 1
+log_pooler_errors = {{ pgbouncer.config.log_pooler_errors }}
 
 
 ; If off, then server connections are reused in LIFO manner
