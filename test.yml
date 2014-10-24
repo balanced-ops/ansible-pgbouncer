@@ -8,4 +8,5 @@
   handlers:
     - include: ./handlers/main.yml
   tasks:
+    - apt: pkg=supervisor state=present
     - include: ./tasks/main.yml
