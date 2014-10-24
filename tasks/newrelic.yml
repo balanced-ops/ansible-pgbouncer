@@ -6,8 +6,10 @@
     - supervisor
 - pip: name=newrelic-plugin-agent
 - pip: name=newrelic-plugin-agent[pgbouncer]
-- template: src=pgbouncer/newrelic.ini.j2 dest=/etc/newrelic/newrelic-plugin-agent.cfg owner=newrelic group=newrelic mode=0440
+- file: path=/etc/newrelic state=directory owner=newrelic group=newrelic
 - file: path=/var/log/newrelic state=directory owner=newrelic group=newrelic
 - file: path=/var/run/newrelic state=directory owner=newrelic group=newrelic
+- template: src=pgbouncer/newrelic.ini.j2 dest=/etc/newrelic/newrelic-plugin-agent.cfg owner=newrelic group=newrelic mode=0440
 
 # TODO: use supervisor to get this thing up and running
+- command: newrelic-plugin-agent -c /etc/newrelic/newrelic-plugin-agent.cfg
