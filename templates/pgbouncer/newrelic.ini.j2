@@ -1,0 +1,39 @@
+%YAML 1.2
+---
+Application:
+    license_key: {{ newrelic_license_key }}
+    wake_interval: 60
+    #newrelic_api_timeout: 10
+    {% if newrelic_proxy|default(False) != False %}
+    proxy: http://localhost:8080
+    {% endif %}
+
+    pgbouncer:
+      host: localhost
+      port: {{ pgbouncer.config.listen_port }}
+      user: {{ pgbouncer.config.user }}
+
+Daemon:
+    user: newrelic
+    pidfile: /var/run/newrelic/newrelic-plugin-agent.pid
+
+Logging:
+    formatters:
+        verbose:
+            format: '%(levelname) -10s %(asctime)s %(process)-6d %(processName) -15s %(threadName)-10s %(name) -45s %(funcName) -25s L%(lineno)-6d: %(message)s'
+    handlers:
+        file:
+            class : logging.handlers.RotatingFileHandler
+            formatter: verbose
+            filename: /var/log/newrelic/newrelic-plugin-agent.log
+            maxBytes: 10485760
+            backupCount: 3
+    loggers:
+        newrelic_plugin_agent:
+            level: INFO
+            propagate: True
+            handlers: [console, file]
+        requests:
+            level: ERROR
+            propagate: True
+            handlers: [console, file]

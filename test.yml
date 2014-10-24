@@ -1,9 +1,12 @@
 ---
 - hosts: all
   sudo: yes
+  vars:
+    newrelic_license_key: test
   vars_files:
     - ./defaults/main.yml
   handlers:
     - include: ./handlers/main.yml
   tasks:
+    - apt: pkg=supervisor state=present
     - include: ./tasks/main.yml

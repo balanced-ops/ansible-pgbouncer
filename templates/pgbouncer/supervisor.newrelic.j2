@@ -1,0 +1,12 @@
+[program:newrelic-plugin-agent]
+command=newrelic-plugin-agent -c /etc/newrelic/newrelic-plugin-agent.cfg -f
+user=newrelic
+autostart=true
+autorestart=true
+redirect_stderr=true
+redirect_stderr=false
+stdout_logfile=/var/log/newrelic/newrelic-plugin-agent.log
+stdout_logfile_maxbytes=20MB
+stdout_logfile_backups=1
+stdout_capture_maxbytes=0
+stdout_events_enabled=false

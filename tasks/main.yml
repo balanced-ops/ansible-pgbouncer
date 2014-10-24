@@ -35,3 +35,6 @@
 
 - include: monitoring.yml
   tags: pgbouncer
+
+- include: newrelic.yml
+  when: newrelic_license_key is defined
