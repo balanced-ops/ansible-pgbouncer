@@ -4,6 +4,7 @@
   with_items:
     - libpq-dev
     - supervisor
+- user: name=newrelic
 - pip: name=newrelic-plugin-agent
 - pip: name=newrelic-plugin-agent[pgbouncer]
 - file: path=/etc/newrelic state=directory owner=newrelic group=newrelic
