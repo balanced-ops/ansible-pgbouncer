@@ -1,0 +1,9 @@
+/var/log/postgresql/*.log {
+    {{ log_rotate_retain_period }}
+    rotate {{ log_rotate_retain_count }}
+    copytruncate
+    delaycompress
+    compress
+    notifempty
+    missingok
+}

@@ -13,6 +13,9 @@ pgbouncer:
     auth_type: trust
     auth_file: /etc/pgbouncer/userlist.txt
 
+    log_rotate_retain_count: 2
+    log_rotate_retain_period: daily
+
 pgbouncer_users:
   - postgres
 
