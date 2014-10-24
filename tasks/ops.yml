@@ -1,0 +1,20 @@
+---
+
+- name: stats
+  command: psql -p {{ pgbouncer.config.port }} pgbouncer -U {{ pgbouncer_stats_users | first }} -c "show {{ item }};"
+  with_items:
+    - stats
+    - pools
+    - databases
+    - servers
+    - clients
+    - mem
+  when: pgbouncer_command == 'stats'
+
+- name: pause
+  command: psql -p {{ pgbouncer.config.port }} pgbouncer -U {{ pgbouncer_stats_users | first }} -c "pause {{ pgbouncer_command_db }};"
+  when: pgbouncer_command == 'pause'
+
+- name: resume
+  command: psql -p {{ pgbouncer.config.port }} pgbouncer -U {{ pgbouncer_stats_users | first }} -c "resume {{ pgbouncer_command_db }};"
+  when: pgbouncer_command == 'resume'

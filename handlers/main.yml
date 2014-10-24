@@ -10,3 +10,6 @@
 
 - name: reload supervisord
   command: supervisorctl reload
+
+- name: reload logrotate
+  command: logrotate -s /var/lib/logrotate.status /etc/logrotate.conf

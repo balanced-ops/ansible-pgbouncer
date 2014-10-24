@@ -10,3 +10,6 @@
   tasks:
     - apt: pkg=supervisor state=present
     - include: ./tasks/main.yml
+    - include: ./tasks/ops.yml pgbouncer_command=stats
+    - include: ./tasks/ops.yml pgbouncer_command=pause
+    - include: ./tasks/ops.yml pgbouncer_command=resume
