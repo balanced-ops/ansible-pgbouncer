@@ -11,7 +11,7 @@ Application:
     pgbouncer:
       host: localhost
       port: {{ pgbouncer.config.listen_port }}
-      user: {{ pgbouncer.config.user }}
+      user: {{ pgbouncer_stats_users | first }}
 
 Daemon:
     user: newrelic

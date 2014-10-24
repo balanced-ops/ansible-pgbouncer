@@ -23,7 +23,7 @@ pgbouncer_admin_users:
   - postgres
 
 pgbouncer_stats_users:
-  - postgres
+  - pgbouncer
 
 pgbouncer_database_host: 127.0.0.1
 pgbouncer_database_port: 5432
