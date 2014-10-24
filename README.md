@@ -27,6 +27,7 @@ ansible-playbook -i ansible.host ./tasks/main.yml
 * We recommend using a proper newrelic plugin like https://github.com/sivel/ansible-newrelic.git as well if you go the newrelic route
 * Monit needs to be configured fully in order for you to receive email alerts etc.
 * Configure databases like this
+
   ```yaml
   pgbouncer_aliases:
     - name: balanced_integration
