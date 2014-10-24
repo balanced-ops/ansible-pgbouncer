@@ -11,6 +11,6 @@
 - file: path=/var/log/newrelic state=directory owner=newrelic group=newrelic
 - file: path=/var/run/newrelic state=directory owner=newrelic group=newrelic
 - template: src=pgbouncer/newrelic.ini.j2 dest=/etc/newrelic/newrelic-plugin-agent.cfg owner=newrelic group=newrelic mode=0440
-- template: src/pgbouncer/supervisor.newrelic.j2 dest=/etc/supervisor.d/newrelic-plugin-agent.conf
+- template: src=pgbouncer/supervisor.newrelic.j2 dest=/etc/supervisor.d/newrelic-plugin-agent.conf
   notify:
     - reload supervisord
