@@ -1,6 +1,6 @@
 ---
 
-- apt: pkg=libpq-dev state=present
+- apt: pkg={{ item }} state=present
   with_items:
     - libpq-dev
     - supervisor
