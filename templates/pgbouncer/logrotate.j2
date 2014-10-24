@@ -6,4 +6,8 @@
     compress
     notifempty
     missingok
+    create 0644 {{ pgbouncer.user }} {{ pgbouncer.group }}
+    postrotate
+        /etc/init.d/pgbouncer reload
+
 }
