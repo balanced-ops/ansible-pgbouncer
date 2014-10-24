@@ -59,11 +59,11 @@ Create an `ops.yml` somewhere:
     - ./defaults/main.yml
   handlers:
     - include: ./handlers/main.yml
-  vars_prompt:
-    pgbouncer_command_db: "which database do you want to operate on [blank for all]?"
+  vars_prompt:    
     pgbouncer_command: "which command would you like to run [stats|pause|resume]?"
+    pgbouncer_command_db: "which database do you want to operate on [blank for all]?"
   tasks:
-    - include: ./tasks/ops.yml pgbouncer_command=pause
+    - include: ./tasks/ops.yml
 ```
 
 You can now invoke this across your bouncer cluster like so:
