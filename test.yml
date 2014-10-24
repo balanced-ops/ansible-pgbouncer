@@ -1,6 +1,8 @@
 ---
 - hosts: all
   sudo: yes
+  vars:
+    newrelic_license_key: test
   vars_files:
     - ./defaults/main.yml
   handlers:
