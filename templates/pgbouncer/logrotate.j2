@@ -1,6 +1,6 @@
 /var/log/postgresql/*.log {
-    {{ log_rotate_retain_period }}
-    rotate {{ log_rotate_retain_count }}
+    {{ pgbouncer.config.log_rotate_retain_period }}
+    rotate {{ pgbouncer.config.log_rotate_retain_count }}
     copytruncate
     delaycompress
     compress
