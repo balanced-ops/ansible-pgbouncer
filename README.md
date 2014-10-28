@@ -48,28 +48,18 @@ This makes it easier for you to do DB maintenance and other work while minimisin
 
 This playbook includes some ad-hoc commands that can be run to pause and resume database connectivity as part of this process.
 
-Here's how we are using them, create a play that gets prompts the user for the db to pause or resume and then execute the command
-
-Create an `ops.yml` somewhere:
-
-```yaml
-- hosts: pgbouncers
-  sudo: yes
-  vars_files:
-    - ./defaults/main.yml
-  handlers:
-    - include: ./handlers/main.yml
-  vars_prompt:    
-    pgbouncer_command: "which command would you like to run [stats|pause|resume]?"
-    pgbouncer_command_db: "which database do you want to operate on [blank for all]?"
-  tasks:
-    - include: ./tasks/ops.yml
-```
-
 You can now invoke this across your bouncer cluster like so:
 
+#### Pausing traffic
+
 ```
-ansible-playbook -i inventory ops.yml
+ansible-playbook -i ansible.inventory ops.yml -e pgbouncer_command=pause -e pgbouncer_command_db=db_name
+```
+
+#### Resuming traffic
+
+```
+ansible-playbook -i ansible.inventory ops.yml -e pgbouncer_command=resume -e pgbouncer_command_db=db_name
 ```
 
 ## License

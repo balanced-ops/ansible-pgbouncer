@@ -10,6 +10,9 @@
   tasks:
     - apt: pkg=supervisor state=present
     - include: ./tasks/main.yml
+    - command: service pgbouncer status
+      register: service_state
+    - debug: var=service_state
 #    - shell: netstat -anplt | grep 6432 | wc -l
 #      register: netstat
 #    - assert:
