@@ -8,6 +8,8 @@ galaxy_info:
     name: Ubuntu
     version:
       - precise
-  categories: []
+  categories:
+    - database
+    - database:sql
 
 dependencies: []
