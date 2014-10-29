@@ -3,6 +3,7 @@
   sudo: yes
   vars:
     newrelic_license_key: test
+    pgbouncer_command_db:
   vars_files:
     - ./defaults/main.yml
   handlers:
