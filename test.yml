@@ -10,7 +10,7 @@
   tasks:
     - apt: pkg=supervisor state=present
     - include: ./tasks/main.yml
-    - command: service pgbouncer status
+    - command: service pgbouncer restart
       register: service_state
     - debug: var=service_state
 #    - shell: netstat -anplt | grep 6432 | wc -l
@@ -18,6 +18,6 @@
 #    - assert:
 #      that:
 #        - "'0' != netstat.stdout"
-#    - include: ./tasks/ops.yml pgbouncer_command=stats
-#    - include: ./tasks/ops.yml pgbouncer_command=pause
-#    - include: ./tasks/ops.yml pgbouncer_command=resume
+    - include: ./tasks/ops.yml pgbouncer_command=stats
+    - include: ./tasks/ops.yml pgbouncer_command=pause
+    - include: ./tasks/ops.yml pgbouncer_command=resume
