@@ -1,0 +1,9 @@
+---
+- hosts: bouncer
+  sudo: yes
+  vars_files:
+    - ./defaults/main.yml
+  handlers:
+    - include: ./handlers/main.yml
+  tasks:
+    - include: ./tasks/ops.yml

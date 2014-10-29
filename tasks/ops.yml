@@ -25,3 +25,7 @@
 - name: resume
   command: psql -p {{ pgbouncer.config.listen_port }} pgbouncer -U {{ pgbouncer_admin_users | first }} -c "resume {{ pgbouncer_command_db }};"
   when: pgbouncer_command == 'resume'
+
+- name: reload
+  service: name=pgbouncer state=reloaded
+  when: pgbouncer_command == 'reload'

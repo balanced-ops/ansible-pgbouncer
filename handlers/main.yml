@@ -1,9 +1,11 @@
 ---
 - name: restart pgbouncer
   service: name=pgbouncer state=restarted
+  when: pgbouncer_ignore_signals is not defined
 
 - name: reload pgbouncer
   service: name=pgbouncer state=reloaded
+  when: pgbouncer_ignore_signals is not defined
 
 - name: restart monit
   service: name=monit state=restarted
